@@ -1,0 +1,34 @@
+{
+  "name": "stout",
+  "version": "0.1.0",
+  "description": "A Javascript template engine.",
+  "main": "src/stout.js",
+  "author": "elvis(cpselvis@gmail.com)",
+  "homepage": "https://github.com/cpselvis/stout",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cpselvis/stout.git"
+  },
+  "keywords": [
+    "stout",
+    "template",
+    "templates"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "compile": "babel --presets es2015,stage-0 -d lib/ src/",
+    "test": "npm run compile && mocha --compilers js:babel-core/register"
+  },
+  "devDependencies": {
+    "babel-cli": "~6.10.1",
+    "babel-core": "~6.10.4",
+    "babel-loader": "~6.2.4",
+    "babel-preset-es2015": "~6.9.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "mocha": "~2.5.3",
+    "webpack": "~2.1.0-beta.15"
+  },
+  "dependencies": {
+    "babel-polyfill": "~6.9.1"
+  }
+}
