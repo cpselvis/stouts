@@ -67,11 +67,30 @@ export default class Parser {
   }
 
   /**
-   * @brief Transform token array to nest token array.
+   * @brief Combines the values of consecutive text tokens in the given `tokens` array to a single token.
    * @param tokens   Token stream array
      */
-  nestedTokens(tokens) {
+  squashTokens(tokens) {
+    let squashedTokens = [];
 
+    let token, lastToken;
+    for (let i = 0, len = tokens.length; i < len; i ++) {
+      token = tokens[i];
+
+      if (token) {
+        if (token[0] === 'text' && lastToken && lastToken[0] === 'text') {
+          // Merge text content
+          lastToken[1] += token[1];
+          // Update end indicator
+          lastToken[3] = token[3];
+        } else {
+          squashedTokens.push(token);
+          lastToken = token;
+        }
+      }
+    }
+
+    return squashedTokens;
   }
 
   parse() {
