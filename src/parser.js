@@ -95,5 +95,8 @@ export default class Parser {
 
   parse() {
     const template = this.template;
+    const tokens = this.tokens(template);
+
+    return this.squashTokens(tokens);
   }
 }

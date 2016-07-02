@@ -73,3 +73,17 @@ describe('squashTokens', () => {
   });
 
 });
+
+describe('parse', () => {
+  it("should return `true` if template traversal is ended.", () => {
+  assert.equal(
+    parser.parse(),
+    [ [ 'text', 'Name is: ', 0, 9 ],
+      [ 'name', 'name', 9, 17 ],
+      [ 'text', ', age is ', 17, 26 ],
+      [ 'name', 'age', 26, 33 ] ],
+    "parse function passed through"
+  );
+});
+
+});
