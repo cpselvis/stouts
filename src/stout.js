@@ -40,8 +40,8 @@ export default class Stout {
    * Convert template and view object together into a string.
    */
   render() {
-    const writer = new Writer();
-    return writer(this.template, this.view)
+    const writer = new Writer(this.template, this.view);
+    return writer.render();
   }
 
   /**
