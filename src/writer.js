@@ -2,6 +2,7 @@
 
 import Parser from './parser'
 import Context from './context'
+import Common from './common'
 
 /**
  * @file Convert template and view object together into a string.
@@ -34,6 +35,8 @@ export default class Writer {
       if (token[0] === 'text') {
         renderedStr += token[1];
       } else if (token[0] === 'name') {
+        renderedStr += Common.escapeHtml(context.lookup(token[1]));
+      } else if (token[0] === '&') {
         renderedStr += context.lookup(token[1]);
       }
     }

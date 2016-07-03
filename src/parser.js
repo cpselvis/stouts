@@ -31,7 +31,8 @@ export default class Parser {
 
     const openingTagRe = /\{\{/,
           closingTagRe = /\}\}/,
-          tagRe = /#|\^|\!/;
+          closingCurlyRe = /\}/,
+          tagRe = /#|\{|\^|\!/;
 
     let start, type, value, ch, hasTag;
     while (!scanner.eot()) {
@@ -55,6 +56,11 @@ export default class Parser {
       // Variable condition
       if (type === 'name') {
         value = scanner.scanUntil(closingTagRe);
+      } else if (type === '{') {
+        value = scanner.scanUntil(closingCurlyRe);
+        scanner.scan(closingCurlyRe);
+        scanner.scanUntil(closingTagRe);
+        type = '&';
       }
 
       // Ensure each opening tag has closing tag as a pair.
