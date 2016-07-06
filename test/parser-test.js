@@ -12,7 +12,7 @@ const parser = new Parser('Name is: {{name}}, age is {{age}}');
 
 describe('tokens', () => {
   it("should return `true` if template traversal is ended.", () => {
-    assert.equal(
+    assert.deepEqual(
       parser.tokens('Name is: {{name}}, age is {{age}}'),
       [ [ 'text', 'N', 0, 1 ],
         [ 'text', 'a', 1, 2 ],
@@ -42,7 +42,7 @@ describe('tokens', () => {
 
 describe('squashTokens', () => {
   it("should return `true` if template traversal is ended.", () => {
-    assert.equal(
+    assert.deepEqual(
       parser.squashTokens(
         [ [ 'text', 'N', 0, 1 ],
         [ 'text', 'a', 1, 2 ],
@@ -76,7 +76,7 @@ describe('squashTokens', () => {
 
 describe('parse', () => {
   it("should return `true` if template traversal is ended.", () => {
-  assert.equal(
+  assert.deepEqual(
     parser.parse(),
     [ [ 'text', 'Name is: ', 0, 9 ],
       [ 'name', 'name', 9, 17 ],

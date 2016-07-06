@@ -18,21 +18,30 @@ describe('render', () => {
     );
   });
 
-  it("should return `true` if template traversal is ended.", () => {
-    const stout = new Stout('Name is: {{{name}}}, age is {{age}}', {name: '<p>Elvis</p>', age: 24});
-    assert.equal(
-      stout.render(),
-      'Name is: <p>Elvis</p>, age is 24',
-      "render function case are passed through"
-    );
-  });
+  // it("should return `true` if template traversal is ended.", () => {
+  //   const stout = new Stout('Name is: {{{name}}}, age is {{age}}', {name: '<p>Elvis</p>', age: 24});
+  //   assert.equal(
+  //     stout.render(),
+  //     'Name is: <p>Elvis</p>, age is 24',
+  //     "render function case are passed through"
+  //   );
+  // });
+
+  // it("should return `true` if template traversal is ended.", () => {
+  //   const stout = new Stout('Name are: {{#names}}{{name}},{{/names}}, age is {{age}}', {names: [{name: 'Elvis'}, {name: 'Joe'}, {name: 'Tank'}], age: 24});
+  //   assert.equal(
+  //     stout.render(),
+  //     'Name are: Elvis,Joe,Tank, age is 24',
+  //     "render function case are passed through"
+  //   );
+  // });
 
 });
 
 describe('parse', () => {
   it("should return `true` if template traversal is ended.", () => {
     const stout = new Stout('Name is: {{name}}, age is {{age}}', {name: '<p>Elvis</p>', age: 24});
-    assert.equal(
+    assert.deepEqual(
       stout.parse(),
       [ [ 'text', 'Name is: ', 0, 9 ],
         [ 'name', 'name', 9, 17 ],
