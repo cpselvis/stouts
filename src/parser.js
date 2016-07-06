@@ -29,15 +29,15 @@ export default class Parser {
       return [];
     }
 
-    const openingTagRe = /\{\{/,
-          closingTagRe = /\}\}/,
-          closingCurlyRe = /\}/,
-          tagRe = /#|\{|\^|\!/;
+    const openingTagRe = /\{\{\s*/,
+      closingTagRe = /\s*\}\}/,
+      closingCurlyRe = /\s*\}\}/,
+      tagRe = /#|\{|\^|\!/;
 
-    let start, type, value, ch, hasTag;
+    let start, type, value, ch, hasTag, token;
     while (!scanner.eot()) {
       start = scanner.pos;
-      value = scanner.scanUntil(/{{/);
+      value = scanner.scanUntil(openingTagRe);
       for (let i = 0; i < value.length; i ++) {
         ch = value.charAt(i);
         tokens.push(['text', ch, start, start + 1]);
@@ -54,20 +54,21 @@ export default class Parser {
       type = scanner.scan(tagRe) || 'name';
 
       // Variable condition
-      if (type === 'name') {
-        value = scanner.scanUntil(closingTagRe);
-      } else if (type === '{') {
+      if (type === '{') {
         value = scanner.scanUntil(closingCurlyRe);
         scanner.scan(closingCurlyRe);
         scanner.scanUntil(closingTagRe);
         type = '&';
+      } else {
+        value = scanner.scanUntil(closingTagRe);
       }
 
       // Ensure each opening tag has closing tag as a pair.
       if (!scanner.scan(closingTagRe))
         throw new Error('Unclosed tag at ' + scanner.pos);
 
-      tokens.push([type, value, start, scanner.pos]);
+      token = [type, value, start, scanner.pos];
+      tokens.push(token);
     }
     return tokens;
   }
