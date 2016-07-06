@@ -2,6 +2,8 @@
 
 *A Javascript template engine by [@Elvis](//github.com/cpselvis)*
 
+[![Build Status](https://travis-ci.org/cpselvis/stout/.svg?branch=master)]
+
 ## ES6 Project && Webpack Config
 
   Follow http://jamesknelson.com/using-es6-in-the-browser-with-babel-6-and-webpack/
