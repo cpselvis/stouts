@@ -27,14 +27,14 @@ describe('render', () => {
   //   );
   // });
 
-  // it("should return `true` if template traversal is ended.", () => {
-  //   const stout = new Stout('Name are: {{#names}}{{name}},{{/names}}, age is {{age}}', {names: [{name: 'Elvis'}, {name: 'Joe'}, {name: 'Tank'}], age: 24});
-  //   assert.equal(
-  //     stout.render(),
-  //     'Name are: Elvis,Joe,Tank, age is 24',
-  //     "render function case are passed through"
-  //   );
-  // });
+  it("should return `true` if template traversal is ended.", () => {
+    const stout = new Stout('Name are: {{#names}}{{name}},{{/names}} age is {{age}}', {names: [{name: 'Elvis'}, {name: 'Joe'}, {name: 'Tank'}], age: 24});
+    assert.equal(
+      stout.render(),
+      'Name are: Elvis,Joe,Tank, age is 24',
+      "render function case are passed through"
+    );
+  });
 
 });
 
@@ -44,9 +44,9 @@ describe('parse', () => {
     assert.deepEqual(
       stout.parse(),
       [ [ 'text', 'Name is: ', 0, 9 ],
-        [ 'name', 'name', 9, 17 ],
+        [ 'name', 'name', 11, 17 ],
         [ 'text', ', age is ', 17, 26 ],
-        [ 'name', 'age', 26, 33 ] ],
+        [ 'name', 'age', 28, 33 ] ],
       "parse function case are passed through"
     );
   });

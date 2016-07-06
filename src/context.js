@@ -16,6 +16,15 @@ export default class Context {
   }
 
   /**
+   * Creates a new context using the given view
+   * @param view
+   * @returns {Context}
+     */
+  push(view) {
+    return new Context(view);
+  }
+
+  /**
    * Find the value of giving name in context
    * @param name  Given name, support dot notion (eg: person.name)
    */

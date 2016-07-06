@@ -32,7 +32,7 @@ export default class Parser {
     const openingTagRe = /\{\{\s*/,
       closingTagRe = /\s*\}\}/,
       closingCurlyRe = /\s*\}\}/,
-      tagRe = /#|\{|\^|\!/;
+      tagRe = /#|\{|\^|\!|\//;
 
     let start, type, value, ch, hasTag, token;
     while (!scanner.eot()) {
@@ -48,6 +48,7 @@ export default class Parser {
       if (!scanner.scan(openingTagRe)) {
         break;
       }
+      start = scanner.pos;
 
       hasTag = true;
 
@@ -100,10 +101,47 @@ export default class Parser {
     return squashedTokens;
   }
 
+  /**
+   * @brief Transform single tokens to nested tree structure  where
+   * tokens that represent a section have two additional items: 1) an array of
+   * all tokens that appear in that section and 2) the index in the original
+   * template that represents the end of that section.
+   *
+   * @param tokens
+   */
+  nestedTokens(tokens) {
+    var nestedTokens = [];
+    var collector = nestedTokens;
+    var sections = [];
+
+    var token, section;
+    for (var i = 0, numTokens = tokens.length; i < numTokens; ++i) {
+      token = tokens[i];
+
+      switch (token[0]) {
+        case '#':
+          collector.push(token);
+          sections.push(token);
+          collector = token[4] = [];
+          break;
+        case '/':
+          section = sections.pop();
+          section[5] = token[2];
+          collector = sections.length > 0 ? sections[sections.length - 1][4] : nestedTokens;
+          break;
+        default:
+          collector.push(token);
+      }
+    }
+
+    return nestedTokens;
+  }
+
   parse() {
     const template = this.template;
     const tokens = this.tokens(template);
+    const squashTokens = this.squashTokens(tokens);
 
-    return this.squashTokens(tokens);
+    return this.nestedTokens(squashTokens);
   }
 }

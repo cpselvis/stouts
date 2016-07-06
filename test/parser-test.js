@@ -23,7 +23,7 @@ describe('tokens', () => {
         [ 'text', 's', 6, 7 ],
         [ 'text', ':', 7, 8 ],
         [ 'text', ' ', 8, 9 ],
-        [ 'name', 'name', 9, 17 ],
+        [ 'name', 'name', 11, 17 ],
         [ 'text', ',', 17, 18 ],
         [ 'text', ' ', 18, 19 ],
         [ 'text', 'a', 19, 20 ],
@@ -33,7 +33,7 @@ describe('tokens', () => {
         [ 'text', 'i', 23, 24 ],
         [ 'text', 's', 24, 25 ],
         [ 'text', ' ', 25, 26 ],
-        [ 'name', 'age', 26, 33 ] ],
+        [ 'name', 'age', 28, 33 ] ],
       "tokens function passed through"
     );
   });
@@ -53,7 +53,7 @@ describe('squashTokens', () => {
         [ 'text', 's', 6, 7 ],
         [ 'text', ':', 7, 8 ],
         [ 'text', ' ', 8, 9 ],
-        [ 'name', 'name', 9, 17 ],
+        [ 'name', 'name', 11, 17 ],
         [ 'text', ',', 17, 18 ],
         [ 'text', ' ', 18, 19 ],
         [ 'text', 'a', 19, 20 ],
@@ -63,11 +63,11 @@ describe('squashTokens', () => {
         [ 'text', 'i', 23, 24 ],
         [ 'text', 's', 24, 25 ],
         [ 'text', ' ', 25, 26 ],
-        [ 'name', 'age', 26, 33 ] ]),
+        [ 'name', 'age', 28, 33 ] ]),
       [ [ 'text', 'Name is: ', 0, 9 ],
-        [ 'name', 'name', 9, 17 ],
+        [ 'name', 'name', 11, 17 ],
         [ 'text', ', age is ', 17, 26 ],
-        [ 'name', 'age', 26, 33 ] ],
+        [ 'name', 'age', 28, 33 ] ],
       "tokens function passed through"
     );
   });
@@ -79,9 +79,9 @@ describe('parse', () => {
   assert.deepEqual(
     parser.parse(),
     [ [ 'text', 'Name is: ', 0, 9 ],
-      [ 'name', 'name', 9, 17 ],
+      [ 'name', 'name', 11, 17 ],
       [ 'text', ', age is ', 17, 26 ],
-      [ 'name', 'age', 26, 33 ] ],
+      [ 'name', 'age', 28, 33 ] ],
     "parse function passed through"
   );
 });
