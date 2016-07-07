@@ -2,7 +2,7 @@
 
 *A Javascript template engine by [@Elvis](//github.com/cpselvis)*
 
-[![NPM version][https://img.shields.io/npm/v/stouts.svg?style=flat-square]](https://www.npmjs.com/package/stouts)
+[![NPM version](https://img.shields.io/npm/v/stouts.svg?style=flat-square)](https://www.npmjs.com/package/stouts)
 [![Build Status](https://travis-ci.org/cpselvis/stout.svg?branch=master)](https://travis-ci.org/cpselvis/stout)
 [![Coverage Status](https://coveralls.io/repos/github/cpselvis/stouts/badge.svg?branch=master)](https://coveralls.io/github/cpselvis/stouts?branch=master)
 
