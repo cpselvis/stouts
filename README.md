@@ -2,7 +2,7 @@
 
 *A Javascript template engine by [@Elvis](//github.com/cpselvis)*
 
-![Build Status](https://travis-ci.org/cpselvis/stouts.svg?branch=master)
+![Build Status](https://travis-ci.org/cpselvis/stout.svg?branch=master)
 
 Why I want to create this wheel? I get inspiration from peg.js which is a generator for parser.
 But it seems complex to use because it's grammar isn't easy to understand, so I try to write a
