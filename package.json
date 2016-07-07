@@ -18,7 +18,7 @@
   "scripts": {
     "compile": "babel --presets es2015,stage-0 -d lib/ src/",
     "test": "npm run compile && mocha --compilers js:babel-core/register",
-    "cover": "istanbul cover node_modules/mocha/bin/_mocha -- --compilers js:babel-core/register --colors --reporter dot test/"
+    "cov": "istanbul cover node_modules/mocha/bin/_mocha -- --compilers js:babel-core/register --colors --reporter dot test/"
   },
   "devDependencies": {
     "babel-cli": "~6.10.1",
