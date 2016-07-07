@@ -7,3 +7,5 @@ before_install:
   - npm install -g npm@2.x
 script:
   - npm test
+after_script:
+  - "test -e ./coverage/lcov.info && npm install coveralls@2 && cat ./coverage/lcov.info | coveralls"
