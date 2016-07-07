@@ -1,8 +1,8 @@
-# Stout
+# Stouts
 
 *A Javascript template engine by [@Elvis](//github.com/cpselvis)*
 
-![Build Status](https://travis-ci.org/cpselvis/stout.svg?branch=master)
+![Build Status](https://travis-ci.org/cpselvis/stouts.svg?branch=master)
 
 ## ES6 Project && Webpack Config
 
