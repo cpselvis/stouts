@@ -1,6 +1,6 @@
 {
   "name": "stouts",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A Javascript template engine.",
   "main": "src/stouts.js",
   "author": "elvis(cpselvis@gmail.com)",
