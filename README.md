@@ -42,13 +42,11 @@ var output = Stout.render("Name are: {{#names}}{{name}},{{/names}} age is {{age}
 - Stouts.render(template, view)
 - Stouts.parse(template);
 
-## Syntax
+## Syntax rules
 
-  | Syntax rules                 | Meannings                 |
-  | -------------------------    |:-----------------------:  |
-  | {{variable}}                 | Raw value                 |
-  | {{{variable}}}               | Escape value              |
-  | {{#names}}{{name}}{{/names}} | Loop                      |
+- {{variable}}                 -> Raw value                 
+- {{{variable}}}               -> Escape value              
+- {{#names}}{{name}}{{/names}} -> Loop                      
 
 
 ## Testing
