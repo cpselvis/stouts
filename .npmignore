@@ -3,6 +3,7 @@
 .babelrc
 .editorconfig
 .travis.yml
+.coveralls.yml
 npm-debug.log
 README.md
 /doc
