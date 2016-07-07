@@ -1,16 +1,16 @@
 {
-  "name": "stout",
-  "version": "0.1.0",
+  "name": "stouts",
+  "version": "0.0.2",
   "description": "A Javascript template engine.",
-  "main": "src/stout.js",
+  "main": "src/stouts.js",
   "author": "elvis(cpselvis@gmail.com)",
-  "homepage": "https://github.com/cpselvis/stout",
+  "homepage": "https://github.com/cpselvis/stouts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/cpselvis/stout.git"
+    "url": "https://github.com/cpselvis/stouts.git"
   },
   "keywords": [
-    "stout",
+    "stouts",
     "template",
     "templates"
   ],
